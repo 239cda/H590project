@@ -1369,10 +1369,9 @@ function drawScatter(selectedRegion1, selectedRegion2, selectedEnergyId) {
 			}
 	dp (selectedEnergy);
 	
-	//putting titles in
-	d3.select("#titleData")
-	   .html(selectedEnergy)
-	d3.select("#scale")
+d3.select("#titleData")
+	   .html(selectedEnergy + " of " + selectedRegion1 + " and " + selectedRegion2)
+    d3.select("#scale")
 	   .html(scaleDisplay)
 
 
