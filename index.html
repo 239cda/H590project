@@ -1595,13 +1595,21 @@
                      .attr("fill", "none");
 		  }
 		  else if (bothOnOrNot == 3) {
-			group.append("path")
+			if (checkIfRadioBarOn == true){group.append("path")
 	                 .attr("class", "line")
 					 .attr("id", "lineGraphLine")
                      .attr("d", lineValue3(dataset2))
                      .attr("stroke", "#ff661a")
                      .attr("stroke-width", 2)
-                     .attr("fill", "none");
+                     .attr("fill", "none");}
+			else{group.append("path")
+	                 .attr("class", "line")
+					 .attr("id", "lineGraphLine")
+                     .attr("d", lineValue(dataset2))
+                     .attr("stroke", "#ff661a")
+                     .attr("stroke-width", 2)
+                     .attr("fill", "none");}
+			
 		  }
 		  d3.select("#main").append("circle")
 			.attr("cx", 110)
