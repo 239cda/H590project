@@ -22,32 +22,43 @@
 	</style>
 </head>
 <body>
-<svg id="main" width="800" height="1200">
-	
+<svg id="main" width="1800" height="1200">
+		<rect x="635" y="100" width="250" height="350" rx="15" ry="15" style="shape-rendering= crispEdges;fill:white;stroke:black;stroke-width:1;opacity:0.5" />	
+		<rect x="645" y="110" width="230" height="330" rx="15" ry="15" style="opacity:0.2; fill:rgb(175, 175, 131)"/>	
 		<text id='titleData' class = 'menu' x='100' y='70' style= font-size:20></text>
-		<text id='titleCoun' class = 'menu' x='100' y='260' style = font-size:15></text>
-		<text id='titleYear' class = 'menu' x='100' y='100' style = font-size:15></text>
+		<text id="scale" class = "menu" x = '15' y='195' style= font-size:11></text>
 		<!--below are texts for menu box-->
 		<!--the position of the text will be determined later with variable, using .attr-->
 		<!--title GRAPH TYPE-->
-		<text id='titleGraph' class = 'menu' x='650' y = '50'>Graph Type</text>
+		<text id='titleGraph' class = 'menu' x='650' y ='120'>Graph Type</text>
 		<!--title DATA TYPE-->
 		<text id='titleDisplay' class = 'menu'>Data Type</text>
 		<!--title YEAR-->
 		<text id='titleYearMenu' class = 'menu'>Year</text>
 		<!--title Region/Country-->
 		<text id='titleCounMenu' class = 'menu'>Country/Region</text>
+		<text class = 'detailText' x='680'y = '145'>Bar Chart</text>
+		<text class = 'detailText' x='712'y = '165'>Line Graph</text>
+		<text class = 'detailText' x='680'y = '185'>Scatterplot</text>
+		<text class = 'detailText' x='680' y='246'>Production</text>
+		<text class = 'detailText' x='680' y='266'>Consumption</text>
+		<text class = 'detailText' x='730' y='295'>to</text>
+		<text id="textVar1" x = "130" y="480" style= font-size:20>Production</text>
+		<text id="textVar2" x = "330" y="480" style= font-size:20>Consumption</text>
+		<text class = 'link' x = '180' y = '550' style= font-size:15>Link to Documentation</text>
+		<text class = 'link' x = '430' y = '550' style= font-size:15>Link to Video</text>
+		
 	</svg>
 	<!--radio button BAR CHART-->
-	<input type="radio" id ="radioBarchart" name ="chart" onclick = "radioBarchartOn();" value="bar" checked style="position: absolute; left: 650px; top: 100px"> 
+	<input type="radio" id ="radioBarchart" name ="chart" onclick = "radioBarchartOn();" value="bar" checked style="position: absolute; left: 665px; top: 140px"> 
 	<!--radio button SCATTERPLOT-->
-	<input type="radio" id ="radioScatterplot" name ="chart" onclick = "radioScatterOn();" value "scatter" style="position: absolute; left: 650px; top: 140px"> 
+	<input type="radio" id ="radioScatterplot" name ="chart" onclick = "radioScatterOn();" value "scatter" style="position: absolute; left: 665px; top: 180px"> 
 	<!--sub-checkbox LINE CHART-->
-	<input type="checkbox" id = "checkboxLinegraph" name = "chart" style= "position: absolute; left: 680px; top: 120px"> 
+	<input type="checkbox" id = "checkboxLinegraph" name = "chart" style= "position: absolute; left: 700px; top: 160px"> 
 	<!--sub checkbok ANIMATE SCATTERPLOT--->
-	<input type="checkbox" id = "checkboxScatterplot" name = "chart" style="position: absolute; left: 680px; top: 160px"> 
+	
 	<!--drop-down for available data types-->
-	<select id="selectEnergytype" style="position: absolute; left: 650px; top: 200px">
+	<select id="selectEnergytype" style="position: absolute; left: 670px; top: 210px">
 	<option id="total energy">Total Primary Energy</option>
 	<option id="total elec">Total Electricity</option>
 	<option id="renew elec">Renewable Electricity</option>
@@ -57,29 +68,29 @@
 	<option id="co2">CO2 Emissions per Capita</option>
 	</select>
 	<!--checkbox for production/consumption (by defalut select both)-->
-	<input type="checkbox" id = "checkboxPro" name = "chart" checked style="position: absolute; left: 680px; top: 220px"> 
-	<input type="checkbox" id = "checkboxCon" name = "chart"  checked style="position: absolute; left: 680px; top: 240px"> 
+	<input type="checkbox" id = "checkboxPro" name = "chart" checked style="position: absolute; left: 665px; top: 240px"> 
+	<input type="checkbox" id = "checkboxCon" name = "chart"  style="position: absolute; left: 665px; top: 260px"> 
 	<!--2 dropdown boxes for year side by side (from A to B)-->
-	<select id="selectYearfrom" name = "chart"  style="position: absolute; left: 650px; top: 260px">
+	<select id="selectYearfrom" name = "chart"  style="position: absolute; left: 670px; top: 290px">
 	</select>
-	<select id="selectYearto" name = "chart" style="position: absolute; left: 750px; top: 260px">
+	<select id="selectYearto" name = "chart" style="position: absolute; left: 770px; top: 290px">
 	<option selected="selected" hidden >2012</option>
 	</select>
 	<!--drop-down for country name and region name-->
-	<select id="selectionWidget" name = "chart" style="position: absolute; left: 650px; top: 300px">
+	<select id="selectionWidget" name = "chart" style="position: absolute; left: 670px; top: 320px">
 	</select>
 	<!--button RESET-->
 	<!--when clicked, reset every setting to default-->
-	<button id="buttonReset" name = "chart" style="position: absolute; left: 650px; top: 330px">Restore Default</button>
+	<button id="buttonReset" name = "chart" style="position: absolute; left: 670px; top: 370px">Restore Default</button>
 	  <!--add a little space-->
 	  <!--button ADVANCED OPTION-->
 	  <!--it triggers a pop-up box-->
-	<button id="buttonAdvanced" name = "chart" style="position: absolute; left: 650px; top: 370px">Advanced option</button>
-	<button id="buttonComparison" name = "chart" style="position: absolute; left: 650px; top: 420px">Compare different regions</button>
+	
+	<button id="buttonComparison" name = "chart" style="position: absolute; left: 670px; top: 410px">Compare different regions</button>
 	<script>
 	
 		var listOfLocalities = [];
-		console.log(listOfLocalities)
+	
 		var localities = {};//total energy production
 		var localitiesEnCon = {};//total energy consumption
 		var localitiesCO2 = {};
@@ -95,8 +106,7 @@
 		var localitiesElectCon = {};
 		
 		var totalYear = [];
-		console.log(localitiesElectPro)
-		console.log(localitiesElectCon)
+
 		//make an array of total years in the data to use it in YEAR dropdown
 		function totalYearCal(){
 			for (var i = 1980; i <2013; i++)
@@ -707,15 +717,13 @@
 ////////////////////End of data retrieval///////////////////////////////	
 ////////////////////////////////////////////////////////////////////////		
 			//this is the value that determines if the graph has one or two data relating to energy type
-				var bothOn = 1;
-				var proOn = 2;
-				var conOn = 3;
-				var bothOff = 0;
-			
+
+				
+				drawBarChart('North America', 1980, 2012, localities, localities, 2);
 				// make chart
 				//if Bar chart is selected (radio) --- default state
 //////////////////THIS PART NEEDS CORRECTION LATER//////energyType2 not correctly passed for some mindbreaking reason
-				drawBarChart('North America', 1980, 2012, localities, localities, bothOn);
+					
 				  
 				// populate selection list
 				d3.select('#selectionWidget').selectAll('option').data(listOfLocalities).enter().append('option')
@@ -724,11 +732,6 @@
 
 				d3.select("#selectionWidget")
 					.on('change', function() {
-
-						// clear the contents of the chart
-						d3.select("#main").selectAll('g').remove();
-
-						// figure out the newly selected locality
 						var selection = document.getElementById('selectionWidget');
 						var localityName = selection.options[selection.selectedIndex].value;
 
@@ -750,272 +753,17 @@
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-						
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-						
-					});
-					
-				//change graph according to the energy type selection
-				d3.select("#selectEnergytype")
-					.on('change', function() {
 
 						// clear the contents of the chart
 						d3.select("#main").selectAll('g').remove();
 
 						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
+					});
+					
+				//change graph according to the energy type selection
+				d3.select("#selectEnergytype")
+					.on('change', function() {
 						var selection = document.getElementById('selectionWidget');
 						var localityName = selection.options[selection.selectedIndex].value;
 
@@ -1027,7 +775,9 @@
 						
 						var selection=document.getElementById("selectEnergytype");
 						var selectedEnergy=selection.options[selection.selectedIndex].value;
-
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
 						//re-draw bar chart for the new locality
 						//re-draw according to the selection in the menu box
 						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
@@ -1035,273 +785,17 @@
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-						
-						//pass another variable to the function that determines if this graph deals with one data or two
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-						
+
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
+
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
 					});
-					
 
 				//drawing linegraph if checkbox is checed
 				d3.select("#checkboxLinegraph")
 				   .on('change', function(){
-				   // clear the contents of the chart
-						d3.select("#main").selectAll('g').remove();
-
-						// figure out the newly selected locality
 						var selection = document.getElementById('selectionWidget');
 						var localityName = selection.options[selection.selectedIndex].value;
 
@@ -1313,7 +807,9 @@
 						
 						var selection=document.getElementById("selectEnergytype");
 						var selectedEnergy=selection.options[selection.selectedIndex].value;
-
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
 						//re-draw bar chart for the new locality
 						//re-draw according to the selection in the menu box
 						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
@@ -1321,262 +817,12 @@
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-						
-						//pass another variable to the function that determines if this graph deals with one data or two
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								 drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
+
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
+
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
 					});
 				   
 			//this is the 2 dropdowns for year
@@ -1588,306 +834,34 @@
 					.attr('value', function(d) { return d; })
 			//this determines starting year	
 			d3.select('#selectYearfrom')
-					.on('change', function(){
-					d3.select("#main").selectAll('g').remove();
-					//check which value is assigned to each dropdown
-					var selection = document.getElementById('selectionWidget');
-					var localityName = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearfrom');
-					var selectedYearfrom = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearto');
-					var selectedYearto = selection.options[selection.selectedIndex].value;
-					
-					var selection=document.getElementById("selectEnergytype");
-					var selectedEnergy=selection.options[selection.selectedIndex].value;
-				
-
-				  //redraw a graph with a change to its axis
-				        var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
-						var checkIfRadioScatterOn = document.getElementById("radioScatterplot").checked;
-						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
-						var checkIfProOn = document.getElementById("checkboxPro").checked;
-						var checkIfConOn = document.getElementById("checkboxCon").checked;
-						
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-				  });
-			/*//line graph drawing part
-			//checking if checkbox is checked(changed)
-				d3.select("#checkboxLinegraph")
-				   .on('change', function(){
-					/*var checkIfOn = document.getElementById("checkboxLinegraph").checked;
-					if (checkIfOn == true)	 {
-						var selection = document.getElementById('selectionWidget');
+					.on('change', function(){var selection = document.getElementById('selectionWidget');
 						var localityName = selection.options[selection.selectedIndex].value;
-						
+
 						var selection= document.getElementById('selectYearfrom');
 					    var selectedYearfrom = selection.options[selection.selectedIndex].value;
 					
 					    var selection= document.getElementById('selectYearto');
 					    var selectedYearto = selection.options[selection.selectedIndex].value;
+						
+						var selection=document.getElementById("selectEnergytype");
+						var selectedEnergy=selection.options[selection.selectedIndex].value;
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
+						//re-draw bar chart for the new locality
+						//re-draw according to the selection in the menu box
+						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
+						var checkIfRadioScatterOn = document.getElementById("radioScatterplot").checked;
+						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
+						var checkIfProOn = document.getElementById("checkboxPro").checked;
+						var checkIfConOn = document.getElementById("checkboxCon").checked;
 
-						drawLine(localityName, selectedYearfrom, selectedYearto);
-						}
-					else {
-						d3.select("#main").selectAll('#lineGraphLine').remove();}
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
 
-					});*/
-
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
+					});
 			//this determines ending year			
 			 d3.select('#selectYearto').selectAll('option')
 			        .data(totalYear)
@@ -1897,867 +871,119 @@
 					
 				d3.select('#selectYearto')	
 					.on('change', function(){
-					d3.select("#main").selectAll('g').remove();
-					//check which value is assigned to each dropdown
 					var selection = document.getElementById('selectionWidget');
-					var localityName = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearfrom');
-					var selectedYearfrom = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearto');
-					var selectedYearto = selection.options[selection.selectedIndex].value;
-					
-					var selection=document.getElementById("selectEnergytype");
-					var selectedEnergy=selection.options[selection.selectedIndex].value;
+						var localityName = selection.options[selection.selectedIndex].value;
 
-				  //redraw a graph with a change to its axis
-				        var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
+						var selection= document.getElementById('selectYearfrom');
+					    var selectedYearfrom = selection.options[selection.selectedIndex].value;
+					
+					    var selection= document.getElementById('selectYearto');
+					    var selectedYearto = selection.options[selection.selectedIndex].value;
+						
+						var selection=document.getElementById("selectEnergytype");
+						var selectedEnergy=selection.options[selection.selectedIndex].value;
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
+						//re-draw bar chart for the new locality
+						//re-draw according to the selection in the menu box
+						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
 						var checkIfRadioScatterOn = document.getElementById("radioScatterplot").checked;
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-						
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-	
-			})
+
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
+
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
+					});
 			
 			//code for a reset button (restore everything to a default state)
 			d3.select('#buttonReset')
 			  .on('click', function(){
 			      d3.select("#main").selectAll('g').remove();
-				  document.getElementById("checkboxLinegraph").checked = false;
 				  document.getElementById("checkboxPro").checked = true;
-				  document.getElementById("checkboxCon").checked = true;
+				  document.getElementById("checkboxCon").checked = false;
 				  document.getElementById("radioBarchart").checked = true;
 				  document.getElementById("radioScatterplot").checked = false;
-				  //change selected value of three dropdowns
-				  document.getElementById("selectionWidget").value = "North America";
-				  document.getElementById("selectYearfrom").value = "1980";
-				  document.getElementById("selectYearto").value = "2012";
-			      drawBarChart('North America', 1980, 2012, localities, localities, bothOn);
-				  }
-			  )
-			//display a graphy according to check and uncheck of production/consumption
-			d3.select("#checkboxPro")
-			  .on('change', function(){
-					var checkIfProOn = document.getElementById("checkboxPro").checked;
-					
+				  document.getElementById("checkboxLinegraph").checked = false;
+				  document.getElementById('selectionWidget').value = "North America";
+					document.getElementById('selectYearfrom').value = 1980;
+					document.getElementById('selectYearto').value=2012;
+					document.getElementById("selectEnergytype").value="Total Primary Energy";
+					drawBarChart('North America', 1980, 2012, localities, localities, 2);	
+				  })
+			d3.select("#checkboxCon")	  
+				.on('change', function(){
 					var selection = document.getElementById('selectionWidget');
-					var localityName = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearfrom');
-					var selectedYearfrom = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearto');
-					var selectedYearto = selection.options[selection.selectedIndex].value;
-					
-					var selection=document.getElementById("selectEnergytype");
-					var selectedEnergy=selection.options[selection.selectedIndex].value;
+						var localityName = selection.options[selection.selectedIndex].value;
 
-				  //redraw a graph with a change to its axis
-				        var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
+						var selection= document.getElementById('selectYearfrom');
+					    var selectedYearfrom = selection.options[selection.selectedIndex].value;
+					
+					    var selection= document.getElementById('selectYearto');
+					    var selectedYearto = selection.options[selection.selectedIndex].value;
+						
+						var selection=document.getElementById("selectEnergytype");
+						var selectedEnergy=selection.options[selection.selectedIndex].value;
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
+						//re-draw bar chart for the new locality
+						//re-draw according to the selection in the menu box
+						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
 						var checkIfRadioScatterOn = document.getElementById("radioScatterplot").checked;
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-					
-					d3.select("#main").selectAll('g').remove();
-					//check which value is assigned to each dropdown
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-				})
-				
-			d3.select("#checkboxCon")
-			  .on('change', function(){
-					var selection = document.getElementById('selectionWidget');
-					var localityName = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearfrom');
-					var selectedYearfrom = selection.options[selection.selectedIndex].value;
-					
-					var selection= document.getElementById('selectYearto');
-					var selectedYearto = selection.options[selection.selectedIndex].value;
-					
-					var selection=document.getElementById("selectEnergytype");
-					var selectedEnergy=selection.options[selection.selectedIndex].value;
 
-				  //redraw a graph with a change to its axis
-				        var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
+
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
+					});	  
+			d3.select("#checkboxPro")	  
+				.on('change', function(){
+					var selection = document.getElementById('selectionWidget');
+						var localityName = selection.options[selection.selectedIndex].value;
+
+						var selection= document.getElementById('selectYearfrom');
+					    var selectedYearfrom = selection.options[selection.selectedIndex].value;
+					
+					    var selection= document.getElementById('selectYearto');
+					    var selectedYearto = selection.options[selection.selectedIndex].value;
+						
+						var selection=document.getElementById("selectEnergytype");
+						var selectedEnergy=selection.options[selection.selectedIndex].value;
+						console.log('new locality: ' + localityName);
+						//check out if it is for production or consumption....now starting to wonder why I designed this way. Kore. Shindoi.
+//there must be a better way
+						//re-draw bar chart for the new locality
+						//re-draw according to the selection in the menu box
+						var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
 						var checkIfRadioScatterOn = document.getElementById("radioScatterplot").checked;
 						var checkIfLineOn = document.getElementById("checkboxLinegraph").checked;
 						var checkIfProOn = document.getElementById("checkboxPro").checked;
 						var checkIfConOn = document.getElementById("checkboxCon").checked;
-					//if (checkIfProOn == true)	 {
-					d3.select("#main").selectAll('g').remove();
-					//check which value is assigned to each dropdown
-						if (selectedEnergy == "Total Primary Energy"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Total Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									   drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Electricity"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Renewable Biofuel"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Coal"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "Petroleum"){
-							if (checkIfRadioBarOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-							    else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							else if (checkIfRadioScatterOn == true){
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
-								    else if (checkIfConOn == false) {
-									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}
-							}
-							if (checkIfLineOn == true) {
-								if (checkIfProOn == true) {
-								    if (checkIfConOn == true) {
-								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
-								    else if (checkIfConOn == false) {
-									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
-								else if (checkIfProOn == false) {
-							        if (checkIfConOn == true){
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
-									else if (checkIfConOn ==false) {
-									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
-								}	
-							}
-						}
-						else if (selectedEnergy == "CO2 Emissions per Capita"){
-							if (checkIfRadioBarOn == true) {
-								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							else if (checkIfRadioScatterOn == true){
-								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-							if (checkIfLineOn == true) {
-								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
-						}
-	
-					//}		
-				})
-			
-			
+
+						// clear the contents of the chart
+						d3.select("#main").selectAll('g').remove();
+
+						// figure out the newly selected locality
+						lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn, localityName, selectedYearfrom, selectedYearto);
+					});	  
+				  
+				  
+				  
+				  
 			//anything that should run before (as a part of data loading function) write above this line
-			}});
-
+			}
+				
+		});
+		
 /////////////////////////////Bar chart///////////////////////////////////////		
 		function drawBarChart(localityName, selectedYearfrom, selectedYearto, energyType, energyType2, bothOnOrNot)
 		{
@@ -2812,16 +1038,44 @@
 				.domain([0, maxProduction])
 				.range([0, chartHeight]);
 
-			// create a group for the bar chart
+
+			var selection=document.getElementById("selectEnergytype");
+			var selectedEnergy=selection.options[selection.selectedIndex].value;
+			
+			//function to see what goes in between.
+			
+			var middleTitle ='';
+			function title(bothOnOrNot, energyType) {
+				if (energyType == localitiesCO2) {middleTitle = ''}
+				else {
+					if(bothOnOrNot == 0) {return ''}
+					else if(bothOnOrNot == 1) {middleTitle ='Production and Consumption'}
+					else if(bothOnOrNot == 2) {middleTitle ='Production'}
+					else if(bothOnOrNot == 3) {middleTitle ='Consumption'}
+				}
+			}
+			var scaleDisplay = '';
+			function dp (energyType) {
+				if(energyType == localities) {scaleDisplay ="(Quadrillion BTU)"}
+				else if(energyType == localitiesElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewBioPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesPetroPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesCoalPro) {scaleDisplay = "(million short tons)"}
+				else if(energyType == localitiesCO2) {scaleDisplay = "(metric tons per capita)"}
+			}
+			
+			title(bothOnOrNot, energyType);
+			dp (energyType);
 			d3.select("#titleData")
-				.html("Primary energy production (Quadrillion BTU)")//add here which year is displayed
-			d3.select("#titleCoun")
-			    .html(localityName)
+			.html(selectedEnergy + ' ' + middleTitle + " of " + localityName)//add here which year is displayed
+			d3.select("#scale")
+			.html(scaleDisplay)
 				
 			//here, save value in this variable to access it in timescale. X-axis will shrink in relation to the data size. 
             var aha = [];
 			var group = d3.select("#main").append("g")
-				.attr("transform", "translate(100, 100)");//location of the graph
+				.attr("transform", "translate(100, 200)");//location of the graph
 			
 			//division point means that after this point of array, data belongs to the second dataset.
 			var divisionPoint = Number(dataset.length)
@@ -2885,7 +1139,32 @@
 					else {return "#ff9966"}}
 				  else if(bothOnOrNot == 2) {return "#99ccff"}
 				  else if(bothOnOrNot ==3) {return "#ff9966"}
-				});
+				})
+				.append("title")
+				.text(function(d, i) {if (bothOnOrNot == 1){
+								if (i < divisionPoint) {return 'Production: ' + d + '   ' +'in ' + (i + yearStart)}
+								else {return 'Consumption: ' + d + '   ' +'in ' + (i - divisionPoint + yearStart)}
+							    }
+							    else if(bothOnOrNot == 2){{return 'Production:: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   else if(bothOnOrNot == 3){{return 'Consumption: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   });
+		d3.select("#main").append("circle")
+			.attr("cx", 110)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#99ccff")
+			
+		d3.select("#main").append("circle")
+			.attr("cx", 310)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#ff9966")
+			
+		/*d3.select("#textVar1")
+		d3.select("#textVar2")
+		  .html(energyType2)*/
 			
 			// create x axis
 			var timeScale = d3.time.scale()
@@ -2967,26 +1246,55 @@
 	var chartWidth = 500;
 	var chartHeight = 120;
 	var scatterWidth = (chartWidth / (dataset.length - 1)) ;
-	console.log(dataset.length)
-	console.log(scatterWidth)
+
+	
 	var yScale = d3.scale.linear()
 				.domain([0, maxProduction])
 				.range([chartHeight, 0]);
 	
-	d3.select("#titleData")
-	   .html("Primary energy production (Quadrillion BTU)")//add here which year is displayed
-	d3.select("#titleCoun")
-		.html(localityName)
-	
+				var selection=document.getElementById("selectEnergytype");
+			var selectedEnergy=selection.options[selection.selectedIndex].value;
+			
+			//function to see what goes in between.
+			
+			var middleTitle ='';
+			function title(bothOnOrNot, energyType) {
+				if (energyType == localitiesCO2) {middleTitle = ''}
+				else {
+					if(bothOnOrNot == 0) {return ''}
+					else if(bothOnOrNot == 1) {middleTitle ='Production and Consumption'}
+					else if(bothOnOrNot == 2) {middleTitle ='Production'}
+					else if(bothOnOrNot == 3) {middleTitle ='Consumption'}
+				}
+			}
+			var scaleDisplay = '';
+			function dp (energyType) {
+				if(energyType == localities) {scaleDisplay ="(Quadrillion BTU)"}
+				else if(energyType == localitiesElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewBioPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesPetroPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesCoalPro) {scaleDisplay = "(million short tons)"}
+				else if(energyType == localitiesCO2) {scaleDisplay = "(metric tons per capita)"}
+			}
+			
+			title(bothOnOrNot, energyType);
+			dp (energyType);
+			d3.select("#titleData")
+			.html(selectedEnergy + ' ' + middleTitle + " of " + localityName)//add here which year is displayed
+			d3.select("#scale")
+			.html(scaleDisplay)
+				
+				
 	//division point means that after this point of array, data belongs to the second dataset.
 	var divisionPoint = Number(dataset.length)
-	console.log(dataset)
+
 	
 	var datasetCombined = dataset.concat(dataset2)
 	var datasetBlank = [];
-	console.log(datasetCombined)
+	
     var group = d3.select("#main").append("g")
-              .attr("transform", "translate(100, 100)");
+              .attr("transform", "translate(100, 200)");
 	//here, save value in this variable to access it in timescale. X-axis will shrink in relation to the data size. 
 	//var aha = [];		  
        group.selectAll("circle")
@@ -3033,7 +1341,32 @@
 				}}
 				else if(bothOnOrNot == 2) {return "#99ccff"}
 				else if(bothOnOrNot ==3) {return "#ff9966"}
-			});
+			})
+			.on("mouseover", function() {d3.select(this)
+			   			.attr("r", 10)})
+			.on("mouseout", function() {d3.select(this)
+			   			.attr("r", 3)})
+			.append("title")
+			.text(function(d, i) {if (bothOnOrNot == 1){
+								if (i < divisionPoint) {return 'Production: ' + d + '   ' +'in ' + (i + yearStart)}
+								else {return 'Consumption: ' + d + '   ' +'in ' + (i - divisionPoint + yearStart)}
+							    }
+							    else if(bothOnOrNot == 2){{return 'Production:: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   else if(bothOnOrNot == 3){{return 'Consumption: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   });
+			d3.select("#main").append("circle")
+			.attr("cx", 110)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#99ccff")
+			
+		d3.select("#main").append("circle")
+			.attr("cx", 310)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#ff9966")
 			
 	        var timeScale = d3.time.scale()
 				.domain([new Date(yearStart, 1, 1), new Date(yearEnd, 1, 1)])
@@ -3135,35 +1468,6 @@
 	//dataset and dataset2 combined for in case both should be displayed
 	var datasetCombined = dataset.concat(dataset2)
 	var datasetBlank = [];
-	console.log(divisionPoint)
-	//line drawing for first line (energyType )
-	/*var lineValue = d3.svg.line()
-	                .x(function(d, i) { 
-					aha.push(scatterWidth * i);
-					//this should apply to dataset with less years
-						if (bothOnOrNot == 1) {
-							if (divisionPoint < 33) {return scatterWidth * i}
-							else {
-								if (i<33) {return scatterWidth * i}
-								else {return scatterWidth * (i-33)}
-							}
-						}
-						else if (bothOnOrNot == 2) {return scatterWidth * i}
-						else if (bothOnOrNot == 3) {return scatterWidth * i}
-						})
-					.y(function(d){
-						if (bothOnOrNot == 1) {
-							if (divisionPoint <33) {return yScale(d)}
-							else {
-								if (i<divisionPoint) {return yScale(d)}
-								else {return yScale2(d)}
-							}}
-						else if (bothOnOrNot == 2) {return yScale(d)}
-						else if (bothOnOrNot == 3) {return yScale2(d)}
-					})
-					.interpolate("linear");	*/
-
-
 
 	var lineValue = d3.svg.line()
 	                .x(function(d, i) { 
@@ -3192,40 +1496,40 @@
 					.y(function(d){return yScale3(d) + chartHeight})
 					.interpolate("linear");	
 	
-	
-					
-	//line drawing for second line (energyType2)
-	/*var lineValue2 = d3.svg.line()
-	                .x(function(d, i) { 
-					aha.push(scatterWidth * i);
-					//this should apply to dataset with less years
-						if (bothOnOrNot == 1) {
-							if (i<33) {return scatterWidth * i}
-							else {return scatterWidth * (i-33)}
-							}
-						}
-						else if (bothOnOrNot == 2) {return scatterWidth * i}
-						else if (bothOnOrNot == 3) {return scatterWidth * i}
-						})
-					.y(function(d){
-						if (bothOnOrNot == 1) {
-							if (divisionPoint <33) {return yScale(d)}
-							else {
-								if (i<divisionPoint) {return yScale(d)}
-								else {return yScale2(d)}
-							}}
-						else if (bothOnOrNot == 2) {return yScale(d)}
-						else if (bothOnOrNot == 3) {return yScale2(d)}
-					})
-					.interpolate("linear");		*/		
+				var selection=document.getElementById("selectEnergytype");
+			var selectedEnergy=selection.options[selection.selectedIndex].value;
+			
+			//function to see what goes in between.
+			
+			var middleTitle ='';
+			function title(bothOnOrNot, energyType) {
+				if (energyType == localitiesCO2) {middleTitle = ''}
+				else {
+					if(bothOnOrNot == 0) {return ''}
+					else if(bothOnOrNot == 1) {middleTitle ='Production and Consumption'}
+					else if(bothOnOrNot == 2) {middleTitle ='Production'}
+					else if(bothOnOrNot == 3) {middleTitle ='Consumption'}
+				}
+			}
+			var scaleDisplay = '';
+			function dp (energyType) {
+				if(energyType == localities) {scaleDisplay ="(Quadrillion BTU)"}
+				else if(energyType == localitiesElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewElectPro) {scaleDisplay = "(billion Kilowatt-hours)"}
+				else if(energyType == localitiesRenewBioPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesPetroPro) {scaleDisplay = "(thousand barrels per day)"}
+				else if(energyType == localitiesCoalPro) {scaleDisplay = "(million short tons)"}
+				else if(energyType == localitiesCO2) {scaleDisplay = "(metric tons per capita)"}
+			}
+			
+			title(bothOnOrNot, energyType);
+			dp (energyType);
+			d3.select("#titleData")
+			.html(selectedEnergy + ' ' + middleTitle + " of " + localityName)//add here which year is displayed
+			d3.select("#scale")
+			.html(scaleDisplay)
 				
 				
-				
-				
-	d3.select("#titleData")
-	   .html("Primary energy production (Quadrillion BTU)")//add here which year is displayed
-	d3.select("#titleCoun")
-		.html(localityName)
 	//run a function here to send dataset into Linevalue fucntion
 	
 	var whichDataToPass = 0;
@@ -3245,7 +1549,7 @@
 		
 	dataPassingFunction(bothOnOrNot);
     var group = d3.select("#main").append("g")
-              .attr("transform", "translate(100, 100)");
+              .attr("transform", "translate(100, 200)");
 		  if (bothOnOrNot == 1) {
 		  var checkIfRadioBarOn = document.getElementById("radioBarchart").checked;
 			if (checkIfRadioBarOn == true) {
@@ -3297,8 +1601,88 @@
                      .attr("stroke-width", 2)
                      .attr("fill", "none");
 		  }
+		  d3.select("#main").append("circle")
+			.attr("cx", 110)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#0088cc")
+			
+		d3.select("#main").append("circle")
+			.attr("cx", 310)
+			.attr("cy", 475)
+			.attr("r", 15)
+			.attr("fill","#ff661a")
 		 
-	           
+	       ////when barchart is on, draw circles too
+			//when linechart is checked, draw circles as datapoints.				   
+			/*var checkIfRadioBarOn = document.getElementById("checkboxLinegraph").checked;	
+			var scatterWidth = (chartWidth / (dataset.length - 1)) ;	
+			
+				if(checkIfRadioBarOn == true) { group.selectAll("circle")
+	        .data(function(d){
+						if (bothOnOrNot == 1){
+						return datasetCombined
+						}
+						else if (bothOnOrNot == 2){
+						return dataset
+						}
+						else if (bothOnOrNot ==3) {
+						return dataset2
+						}
+						else {
+						return datasetBlank}})
+			.enter()
+			.append("circle")
+			//starting point should not be zero because then the result will be different from bar chart
+			.attr("cx", function(d, i) {
+			//aha.push(i*scatterWidth);
+
+			if (divisionPoint<33) {
+				if (i<divisionPoint) {return i*scatterWidth}
+				else {return (i-divisionPoint) * scatterWidth}
+			}
+			else {
+				if (i<33) {return i*scatterWidth}
+				else {return (i-33) * scatterWidth}
+				}
+			
+			})
+			.attr("cy", function(d){
+                 return yScale(d);})
+			.attr("r", 3)	
+			.style("fill", function(d, i){
+				if(bothOnOrNot == 1){
+			    if (divisionPoint<33){
+				  if (i<divisionPoint) {
+				      return "#99ccff"}
+				  else {return "#ff9966"}}
+				else {
+					if (i<33) {return "#99ccff"}
+					else {return "#ff9966"}
+				}}
+				else if(bothOnOrNot == 2) {return "#99ccff"}
+				else if(bothOnOrNot ==3) {return "#ff9966"}
+			})
+			.on("mouseover", function() {d3.select(this)
+			   			.attr("r", 6)})
+			.on("mouseout", function() {d3.select(this)
+			   			.attr("r", 3)})
+			.append("title")
+			.text(function(d, i) {if (bothOnOrNot == 1){
+								if (i < divisionPoint) {return 'Production: ' + d + '   ' +'in ' + (i + yearStart)}
+								else {return 'Consumption: ' + d + '   ' +'in ' + (i - divisionPoint + yearStart)}
+							    }
+							    else if(bothOnOrNot == 2){{return 'Production:: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   else if(bothOnOrNot == 3){{return 'Consumption: ' + d + '   ' +'in ' + (i + yearStart)}
+								}
+							   });
+			
+		}*/
+
+
+
+		   
 			   
 			   /*group.append("path")
 	                 .attr("class", "line")
@@ -3984,7 +2368,268 @@
 					}
 					}	 
 	
+	function lessRepetition(selectedEnergy, checkIfRadioBarOn,checkIfProOn, checkIfConOn, checkIfRadioScatterOn,checkIfLineOn,localityName, selectedYearfrom, selectedYearto){
+	var bothOn = 1;
+	var proOn = 2;
+	var conOn=3;
+	var bothOff = 0;
+	if (selectedEnergy == "Total Primary Energy"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localities, localitiesEnCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "Total Electricity"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesElectPro, localitiesElectCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "Renewable Electricity"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewElectPro, localitiesRenewElectCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "Renewable Biofuel"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesRenewBioPro, localitiesRenewBioCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "Coal"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCoalPro, localitiesCoalCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "Petroleum"){
+							if (checkIfRadioBarOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
+							    else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
+								}
+							}
+							else if (checkIfRadioScatterOn == true){
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOn);}
+								    else if (checkIfConOn == false) {
+									drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
+								}
+							}
+							if (checkIfLineOn == true) {
+								if (checkIfProOn == true) {
+								    if (checkIfConOn == true) {
+								        drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon,  bothOn);}
+								    else if (checkIfConOn == false) {
+									drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, proOn);}}
+								else if (checkIfProOn == false) {
+							        if (checkIfConOn == true){
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, conOn);}
+									else if (checkIfConOn ==false) {
+									    drawLine(localityName, selectedYearfrom, selectedYearto, localitiesPetroPro, localitiesPetroCon, bothOff);}	
+								}	
+							}
+						}
+						else if (selectedEnergy == "CO2 Emissions per Capita"){
+							if (checkIfRadioBarOn == true) {
+								        drawBarChart(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
+							else if (checkIfRadioScatterOn == true){
+								drawScatter(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
+							if (checkIfLineOn == true) {
+								drawLine(localityName, selectedYearfrom, selectedYearto, localitiesCO2, localitiesCO2 , proOn);}
+						}
 	
+	
+	}
 	
 			
 			
