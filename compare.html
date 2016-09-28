@@ -866,29 +866,16 @@
 						
 						var checkSelection = function (selectedRegion1, selectedRegion2, selectedEnergyId, selectedChartType) {
 							if (selectedChartType == "Bar Chart"){
-							drawBar("World", "North America", selectedEnergyId);
-							document.getElementById("region1").value = "World";
-							document.getElementById("region2").value = "North America";
-							enableRegion1();
-							enableRegion2();
+							drawBar(selectedRegion1, selectedRegion2, selectedEnergyId)
 							}
 							else if(selectedChartType == "Line Chart"){
-							drawLine("World", "North America", selectedEnergyId)
-							document.getElementById("region1").value = "World";
-							document.getElementById("region2").value = "North America";
-							enableRegion1();
-							enableRegion2();
+							drawLine(selectedRegion1, selectedRegion2, selectedEnergyId)
 							}
 							else if(selectedChartType == "Scatterplot"){
-							drawScatter("World", "North America", selectedEnergyId)
-							document.getElementById("region1").value = "World";
-							document.getElementById("region2").value = "North America";
-							enableRegion1();
-							enableRegion2();
+							drawScatter(selectedRegion1, selectedRegion2, selectedEnergyId)
 							}
 							else if(selectedChartType == "Animated Scatterplot"){
 							drawAnimatedScatter(selectedEnergyId)}
-							
 						}
 						checkSelection(selectedRegion1, selectedRegion2, selectedEnergyId, selectedChartType);
 					}
